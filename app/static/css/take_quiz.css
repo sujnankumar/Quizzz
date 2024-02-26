@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.container {
+    justify-content: left;
+    text-align: left;
+    width: 100%;
+    margin: auto;
+}
+
+.submit {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.timer-container {
+    background-color: #cc0000;
+    padding: 10px;
+    z-index: 1000;
+    top: 0;
+    border-radius: 13px;
+    right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    color: #fafafa;
+    text-align: center;
+    position: fixed;
+    justify-content: center;
+    margin-top: 10px;
+    border: 2px solid #76818eaf; 
+    box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}

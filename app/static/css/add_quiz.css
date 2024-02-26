@@ -1,0 +1,41 @@
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.page-row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 12px;
+}
+
+#questions-container {
+    width: 100%;
+}
+
+.row {
+    width: 100%;
+}
+
+.btn-submit {
+    margin: auto;
+    width: fit-content;
+}
+
+.back {
+    position: absolute;
+    color: #585757;
+    text-decoration: none;
+    top: 60px;
+    left: 10px;
+}
+
+.btn-small{
+    border-radius: 12px;
+    padding: 10px 20px;
+    width: fit-content;
+    border: 1px solid #939393;
+}

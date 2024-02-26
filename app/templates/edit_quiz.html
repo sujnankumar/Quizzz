@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='js/edit_quiz.js') }}"></script>
+</head>
+<body>
+    
+    <h1>Edit Quiz</h1>
+    <form action="" method="post">
+        <label for="title">Quiz Title:</label>
+        <input type="text" id="title" name="title" value="{{ quiz.title }}"><br>
+
+        <div id="questions-container">
+            {% for question in quiz.questions %}
+            <div class="question">
+                <label>Question:</label>
+                <input type="text" name="question_text_{{ question.id }}" value="{{ question.text }}">
+                <button type="button" onclick="removeParentElement(this)">Remove Question</button>
+                <div class="options-container">
+                    {% for option in question.options %}
+                    <div class="option">
+                        <input type="text" name="option_text_{{ question.id }}_{{ option.id }}" value="{{ option.text }}">
+                        <button type="button" onclick="removeParentElement(this)">Remove Option</button>
+                    </div>
+                    {% endfor %}
+                    <button type="button" onclick="addOption(this)">Add Option</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button type="button" onclick="addQuestion()">Add Question</button><br>
+        <input type="submit" value="Update Quiz">
+    </form>
+</body>
+</html>

@@ -1,0 +1,60 @@
+
+table {
+    text-align: center;
+    width: 100%;
+    margin: 20px 0;
+    border: 1px solid lightgrey;
+}
+
+th {
+    padding: 5px;
+    font-size: 20px;
+}
+
+td {
+    padding: 5px;
+}
+
+.link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease; 
+    font-weight: bold;
+}
+
+.link:hover {
+    color: #0056b3; 
+    text-decoration: underline;
+}
+
+button, input {
+    flex: 1 0 auto; 
+    margin: 10px; 
+}
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+input {
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    form {
+        flex-direction: column; 
+    }
+    
+    button, input {
+        width: auto; 
+    }
+}
+

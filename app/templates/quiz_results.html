@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .selected { font-weight: bold; }
+        .question { margin-bottom: 20px; }
+
+        .container {
+            text-align: left;
+            justify-content: left;
+            align-content: left;
+            align-items: left;
+            
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quiz Results for "{{ quiz.title }}"</h1>
+    <h2>Total Score: {{ result.score }}</h2>
+
+    {% if display %}
+        <div class="container">
+            {% for question in attempt.questions %}
+                <div class="question ">
+                    <p class="h2">Question: {{ question.text }}</p>
+                    <ul class="list-unstyled">
+                        {% for option in question.options %}
+                            <li class="{% if option.text == question.correct_answer %}correct{% endif %}"><span style="font-weight: 600;">Option: </span>
+                                {{ option.text }}
+                                {% if option.text == question.correct_answer %}
+                                    (Correct answer)
+                                {% endif %}
+                                {% for user_answer in user_answers %}
+                                    {% if user_answer.question_id == question.id and user_answer.option_id == option.id %}
+                                        <span class="selected">(Your choice)</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Detailed results will be available after the quiz ends.</p>
+    {% endif %}
+    <a class="button" href="{{ url_for('main.dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

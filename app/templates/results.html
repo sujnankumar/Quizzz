@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Quiz Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+<body>
+    <h1>Your Quiz Results</h1>
+    {% if user_results %}
+        <ul>
+        {% for result in user_results %}
+            <li>Quiz: {{ result.quiz.title }} - Score: {{ result.score }}/{{ result.quiz.num_questions_display }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results to display.</p>
+    {% endif %}
+    <a href="{{ url_for('main.dashboard') }}">Back to Dashboard</a>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!-- templates/register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+<body>
+    <h1>Register</h1>
+    <form method="post">
+        Name: <input type="text" name="name" required><br>
+        USN: <input type="text" id="usnInput" name="usn" pattern="4MT\d\d[A-Z][A-Z]\d\d\d" title="USN must be in the format 4MT**$$***" required><br>
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        <input type="submit" value="Register">
+    </form>
+    <script>
+        document.getElementById('usnInput').addEventListener('input', function() {
+            this.value = this.value.toUpperCase();
+        });
+    </script>    
+</body>
+</html>

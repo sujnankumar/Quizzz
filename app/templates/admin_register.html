@@ -1,0 +1,30 @@
+<!-- admin_register.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+
+</head>
+<body>
+    <h1>Admin Registration</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    
+    <form method="post">
+        Name: <input type="text" name="name" required><br>
+        Username: <input type="text" name="username" required><br>
+        Password: <input type="password" name="password" required><br>
+        Registration Key: <input type="text" name="registration_key" required><br>
+        <input type="submit" value="Register Admin">
+    </form>
+</body>
+</html>
