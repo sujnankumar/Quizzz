@@ -1,5 +1,6 @@
 # Importing required libraries
 import os
+from dotenv import load_dotenv
 from app import create_app
 
 # Get the environment variables
